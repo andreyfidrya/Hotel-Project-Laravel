@@ -13,7 +13,7 @@
       @include('admin.body')
       
 
-        @include('admin.footer')
+      @include('admin.footer')
 
 
   </body>
