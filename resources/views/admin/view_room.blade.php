@@ -55,6 +55,8 @@
                 <th class="th_deg">Wifi</th>
                 <th class="th_deg">Room Type</th>
                 <th class="th_deg">Image</th>
+                <th class="th_deg">Delete</th>
+                <th class="th_deg">Update</th>
             </tr>
 
 
@@ -67,6 +69,11 @@
                 <td>{{$data->room_type}}</td>
                 <td>
                     <img width="100" src="room/{{$data->image}}">
+                </td>
+
+                <td>
+                  <a onclick="return confirm('Are you sure you want to delete this record?')" class="btn btn-danger" href="
+                  {{url('room_delete',$data->id)}}">Delete</a>
                 </td>
             </tr>
 
