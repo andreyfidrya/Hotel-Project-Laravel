@@ -4,6 +4,8 @@
     <base href="/public">         
 @include('home.css');
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
 
 <style type="text/css">
 
@@ -82,6 +84,23 @@
                <h1 style="font-size: 40px!important;">Book Room</h1>
 
 
+               <div>
+
+                  @if(session()->has('message'))
+
+                  <div class="alert alert-success">
+
+                     <button type="button" class="close" data-bs-dismiss="alert">X</button>
+
+                     {{session()->get('message')}}
+                  </div>   
+
+                  @endif
+
+               </div>
+
+
+
                @if($errors->any())
 
 
@@ -140,7 +159,7 @@
 
                <div style="padding-top: 20px;">
 
-                  <input type="submit" class="btn btn-primary" value="Book Room">
+                  <input type="submit" style="background-color: skyblue;" class="btn btn-primary" value="Book Room">
                </div>
 
                </form>
@@ -202,6 +221,8 @@
 
          });
       </script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 
    </body>
 </html>
