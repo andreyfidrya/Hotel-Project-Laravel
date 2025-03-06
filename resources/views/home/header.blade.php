@@ -33,13 +33,7 @@
                               
                               <li class="nav-item">
                                  <a class="nav-link" href="contact.html">Contact Us</a>
-                              </li>
-
-
-
-                              
-
-
+                              </li>                
 
 
                               @if (Route::has('login'))
@@ -72,7 +66,9 @@
                            </ul>
                         </div>
                      </nav>
+                  </div>   
+
+
                   </div>
                </div>
             </div>
-         </div>

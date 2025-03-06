@@ -4,6 +4,23 @@
     <base href="/public">         
 @include('home.css');
 
+
+<style type="text/css">
+
+   label
+   {
+      display: inline-block;
+      width: 200px;
+   }
+
+   input
+   {
+      width: 100%;
+   }
+
+
+</style>
+
    </head>
    <!-- body -->
    <body class="main-layout">
@@ -57,18 +74,84 @@
                 </div>
             </div>
 
+            
+            
+
+            <div class="col-md-4">
+
+               <h1 style="font-size: 40px!important;">Book Room</h1>
+
+
+               @if($errors->any())
+
+
+                  @foreach($errors->all() as $errors)
+
+
+                  <li style="color:red">
+                     {{$errors}}
+                  </li>
+
+                  @endforeach
                
+               @endif
+
+
+               <form action="{{url('add_booking',$room->id)}}" method="Post">
+
+                  @csrf
+
+               <div>
+                  <label>Name</label>
+                  <input type="text" name="name" 
+                  @if(Auth::id()) 
+                  value="{{Auth::user()->name}}"
+                  @endif
+                  >
+               </div>
+
+               <div>
+                  <label>Email</label>
+                  <input type="email" name="email"
+                  @if(Auth::id()) 
+                  value="{{Auth::user()->email}}"
+                  @endif
+                  >
+               </div>
+
+               <div>
+                  <label>Phone</label>
+                  <input type="number" name="phone"
+                  @if(Auth::id()) 
+                  value="{{Auth::user()->phone}}"
+                  @endif
+                  >
+               </div>
+
+               <div>
+                  <label>Start Date</label>
+                  <input type="date" name="startDate" id="startDate">
+               </div>
+
+               <div>
+                  <label>End Date</label>
+                  <input type="date" name="endDate" id="endDate">
+               </div>
+
+               <div style="padding-top: 20px;">
+
+                  <input type="submit" class="btn btn-primary" value="Book Room">
+               </div>
+
+               </form>
+
+            </div>
 
 
                
             </div>
          </div>
       </div>
-
-
-
-
-
 
 
 
@@ -95,5 +178,30 @@
       <!-- sidebar -->
       <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
       <script src="js/custom.js"></script>
+
+      <script>
+         $(function(){
+            var dtToday = new Date();
+         
+            var month = dtToday.getMonth() + 1;
+
+            var day = dtToday.getDate();
+
+            var year = dtToday.getFullYear();
+
+            if(month < 10)
+               month = '0' + month.toString();
+
+            if(day < 10)
+            day = '0' + day.toString();
+
+            var maxDate = year + '-' + month + '-' + day;
+
+            $('#startDate').attr('min', maxDate);
+            $('#endDate').attr('min', maxDate);
+
+         });
+      </script>
+
    </body>
 </html>
