@@ -45,3 +45,13 @@ Route::post('/add_booking/{id}', [HomeController::class, 'add_booking']);
 
 
 Route::get('/bookings', [AdminController::class, 'bookings']);
+
+
+
+Route::get('/delete_booking/{id}', [AdminController::class, 'delete_booking']);
+
+
+Route::get('/approve_book/{id}', [AdminController::class, 'approve_book']);
+
+
+Route::get('/reject_book/{id}', [AdminController::class, 'reject_book']);
