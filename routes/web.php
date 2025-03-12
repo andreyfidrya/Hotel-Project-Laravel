@@ -67,3 +67,5 @@ Route::get('/delete_gallery/{id}', [AdminController::class, 'delete_gallery']);
 
 
 Route::post('/contact', [HomeController::class, 'contact']);
+
+Route::get('/all_messages', [AdminController::class, 'all_messages']);
