@@ -26,18 +26,18 @@ Route::get('/create_room', [AdminController::class, 'create_room'])->middleware(
 
 Route::post('/add_room', [AdminController::class, 'add_room'])->middleware('admin');
 
-Route::get('/view_room', [AdminController::class, 'view_room']);
+Route::get('/view_room', [AdminController::class, 'view_room'])->middleware('admin');
 
-Route::get('/room_delete/{id}', [AdminController::class, 'room_delete']);
+Route::get('/room_delete/{id}', [AdminController::class, 'room_delete'])->middleware('admin');
 
-Route::get('/room_update/{id}', [AdminController::class, 'room_update']);
+Route::get('/room_update/{id}', [AdminController::class, 'room_update'])->middleware('admin');
 
-Route::post('/edit_room/{id}', [AdminController::class, 'edit_room']);
-
-
+Route::post('/edit_room/{id}', [AdminController::class, 'edit_room'])->middleware('admin');
 
 
-Route::get('/room_details/{id}', [HomeController::class, 'room_details']);
+
+
+Route::get('/room_details/{id}', [HomeController::class, 'room_details'])->middleware('admin');
 
 Route::post('/add_booking/{id}', [HomeController::class, 'add_booking'])->middleware('admin');
 
@@ -46,31 +46,31 @@ Route::get('/bookings', [AdminController::class, 'bookings'])->middleware('admin
 
 
 
-Route::get('/delete_booking/{id}', [AdminController::class, 'delete_booking']);
+Route::get('/delete_booking/{id}', [AdminController::class, 'delete_booking'])->middleware('admin');
 
 
-Route::get('/approve_book/{id}', [AdminController::class, 'approve_book']);
+Route::get('/approve_book/{id}', [AdminController::class, 'approve_book'])->middleware('admin');
 
 
-Route::get('/reject_book/{id}', [AdminController::class, 'reject_book']);
+Route::get('/reject_book/{id}', [AdminController::class, 'reject_book'])->middleware('admin');
 
 
-Route::get('/view_gallery', [AdminController::class, 'view_gallery']);
+Route::get('/view_gallery', [AdminController::class, 'view_gallery'])->middleware('admin');
 
 
-Route::post('/upload_gallery', [AdminController::class, 'upload_gallery']);
+Route::post('/upload_gallery', [AdminController::class, 'upload_gallery'])->middleware('admin');
 
 
-Route::get('/delete_gallery/{id}', [AdminController::class, 'delete_gallery']);
+Route::get('/delete_gallery/{id}', [AdminController::class, 'delete_gallery'])->middleware('admin');
 
 
-Route::post('/contact', [HomeController::class, 'contact']);
+Route::post('/contact', [HomeController::class, 'contact'])->middleware('admin');
 
 Route::get('/all_messages', [AdminController::class, 'all_messages'])->middleware('admin');
 
 
-Route::get('/send_mail/{id}', [AdminController::class, 'send_mail']);
+Route::get('/send_mail/{id}', [AdminController::class, 'send_mail'])->middleware('admin');
 
 
-Route::post('/mail/{id}', [AdminController::class, 'mail']);
+Route::post('/mail/{id}', [AdminController::class, 'mail'])->middleware('admin');
 
