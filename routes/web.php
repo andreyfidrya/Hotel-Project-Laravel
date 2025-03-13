@@ -21,10 +21,10 @@ Route::get('/', [AdminController::class, 'home']);
 
 Route::get('/home', [AdminController::class, 'index'])->name('home');
 
-Route::get('/create_room', [AdminController::class, 'create_room']);
+Route::get('/create_room', [AdminController::class, 'create_room'])->middleware('admin');
 
 
-Route::post('/add_room', [AdminController::class, 'add_room']);
+Route::post('/add_room', [AdminController::class, 'add_room'])->middleware('admin');
 
 Route::get('/view_room', [AdminController::class, 'view_room']);
 
@@ -39,7 +39,7 @@ Route::post('/edit_room/{id}', [AdminController::class, 'edit_room']);
 
 Route::get('/room_details/{id}', [HomeController::class, 'room_details']);
 
-Route::post('/add_booking/{id}', [HomeController::class, 'add_booking']);
+Route::post('/add_booking/{id}', [HomeController::class, 'add_booking'])->middleware('admin');
 
 
 Route::get('/bookings', [AdminController::class, 'bookings'])->middleware('admin');
