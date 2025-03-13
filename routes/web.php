@@ -15,8 +15,6 @@ use App\Http\Controllers\HomeController;
 
 
 
-
-
 Route::get('/', [AdminController::class, 'home']);
 
 
@@ -44,7 +42,7 @@ Route::get('/room_details/{id}', [HomeController::class, 'room_details']);
 Route::post('/add_booking/{id}', [HomeController::class, 'add_booking']);
 
 
-Route::get('/bookings', [AdminController::class, 'bookings']);
+Route::get('/bookings', [AdminController::class, 'bookings'])->middleware('admin');
 
 
 
@@ -68,10 +66,11 @@ Route::get('/delete_gallery/{id}', [AdminController::class, 'delete_gallery']);
 
 Route::post('/contact', [HomeController::class, 'contact']);
 
-Route::get('/all_messages', [AdminController::class, 'all_messages']);
+Route::get('/all_messages', [AdminController::class, 'all_messages'])->middleware('admin');
 
 
 Route::get('/send_mail/{id}', [AdminController::class, 'send_mail']);
 
 
 Route::post('/mail/{id}', [AdminController::class, 'mail']);
+
